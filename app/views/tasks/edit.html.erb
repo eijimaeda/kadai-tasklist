@@ -1,0 +1,16 @@
+<h1>id = <%= @task.id %>のタスク編集ページ</h1>
+
+  <%= form_for(@task) do |f|%>
+    <div>
+      <%= f.label :content, 'タスク' %>
+      <%= f.text_field :content %>
+    </div>
+    <div>
+      <%= f.label :deadline, '期限' %>
+      <%= f.text_field :deadline %>
+    </div>
+    <%=f.submit '更新'%>
+    
+  <% end %>
+  
+<%= link_to "一覧に戻る", tasks_path %>
