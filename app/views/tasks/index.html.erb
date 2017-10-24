@@ -2,7 +2,7 @@
 
 <ul>
   <% @tasks.each do |task| %>
-  <li><%= link_to task.id, task_path(task) %>: <%= task.content %> 期限：<%= task.deadline %></li>
+  <li><%= link_to task.id, task_path(task) %>: <%= task.content %> ステータス：<%= task.status %> 期限：<%= task.deadline %></li>
   <% end %>
 </ul>
 
