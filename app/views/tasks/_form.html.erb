@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col-sm-offset-2 col-sm-offset-8 col-lg-offset-3 col-lg-6'>
-    <%= form_for(task) do |f|%>
+    <%= form_for(task) do |f| %>
         <% if task.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(task.errors.count, "error") %>prohibited this message from being saved:</h2>

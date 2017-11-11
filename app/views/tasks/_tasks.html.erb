@@ -1,5 +1,5 @@
-<h1>タスク一覧</h1>
-<% if @tasks.any? %>
+<h1><%= current_user.name %>のタスク一覧</h1>
+<% if tasks.any? %>
 <table class='table table-striped'>
   <thead>
     <tr>
@@ -7,21 +7,24 @@
       <th>タスク</th>
       <th>ステータス</th>
       <th>期限</th>
+      <th>削除</th>
     </tr>
   </thead>
   <tbody>
-    <% @tasks.each do |task| %>
+    <% tasks.each do |task| %>
     <tr>
       <td><%= link_to task.id, task_path(task) %></td>
       <td><%= task.content %></td>
       <td><%= task.status %></td>
       <td><%= task.deadline %></td>
+      <% if current_user == task.user %>
+      <td><%= link_to "Delete", task, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-xs' %></td>
+      <% end %>
     </tr>
     <% end %>
   </tbody>
 </table>
 <div>
-  <%= paginate @tasks %>
+  <%= paginate tasks %>
 </div>
 <% end %>
-<%= link_to "新規タスク作成", new_task_path, class: 'btn btn-primary' %>
